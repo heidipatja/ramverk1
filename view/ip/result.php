@@ -8,7 +8,7 @@ namespace Anax\View;
 
 ?>
 
-<h2>Resultat för <?= htmlentities($ip) ?></h2>
+<h3>Resultat för <?= htmlentities($ip) ?></h3>
 
     <?php if ($valid) : ?>
         <div class="ip-results valid">

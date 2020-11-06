@@ -1,0 +1,295 @@
+/*!
+ * Stylesheet for ramverk1
+ *
+ * This stylesheet is for the ramverk1 course.
+ */
+
+/**
+* Normalize and reset the style.
+*/
+@import "normalize.css/normalize.less";
+
+
+/**
+ * Font Awesome.
+ */
+@import "@fortawesome/fontawesome-free/less/fontawesome.less";
+@import "@fortawesome/fontawesome-free/less/solid.less";
+@import "@fortawesome/fontawesome-free/less/brands.less";
+
+/**
+ * A responsive menu.
+ */
+@import "@desinax/responsive-menu/less/responsive-menu.less";
+@import "@desinax/responsive-menu/less/media-queries.less";
+
+/**
+ * My own settings, not currently in their own module.
+ */
+
+/**
+* Import the typographic grid.
+*/
+@import "@desinax/typographic-grid/less/typography-font-families.less";
+@import "@desinax/typographic-grid/less/typography-defaults.less";
+
+/**
+ * Figure and figcaption for images and other media using figure/figcaption
+ */
+@import "@desinax/figure/less/asciinema.less";
+@import "@desinax/figure/less/codepen.less";
+@import "@desinax/figure/less/figure.less";
+
+/**
+* Base style to affect HTML elements on a general scale.
+*/
+@import "base/me-base.less";
+
+/**
+* Import the vertical grid.
+*/
+@import "@desinax/vertical-grid/less/grid.less";
+@import "layout/me-grids.less";
+
+ /**
+  * Layout style for general structure of header, navbar, main, footer
+  * and other regions of the page including route specific styles.
+  */
+@import "layout/me-layout.less";
+@import "layout/me-responsive.less";
+
+/**
+* Modules
+*/
+
+// @import "modules/header.less";
+
+
+
+// Colors
+
+
+// Color scheme
+@minWhite: #fff;
+@minLighestGray: #fafafa;
+@minLighterGray: #eee;
+@minLightGray: #d3dfe3;
+@minMidGray: #4a5559;
+@minBlueGray: #4b4f53;
+@minDarkGray: #333;
+@minGreen: #31666f;
+@clearBlue: #0960be;
+@linkBlue: #005d57;
+@darkBlue: #1a222b;
+@transparentWhite: rgba(255, 255, 255, 0.95);
+@orange: #f18602;
+@lightOrange: #f2bc7f;
+@lighestBlue: #f1f5f6;
+@green: #83df87;
+@bgGreen: #f6fef6;
+@red: #f1683d;
+@bgRed: #fff4f1;
+
+// Colors
+@bgColorHtml: @darkBlue;
+@bgColorBody: @darkBlue;
+@bgColorFooter: @darkBlue;
+@bgColorSidebar: @minLighterGray;
+@bgColorMenu: @darkBlue;
+@bgColorMain: #eee;
+@bgColorWrapAll: #eee;
+@colorBody: @minDarkGray;
+@textColorHeadings: @minDarkGray;
+@linkColorText: @linkBlue;
+@linkColor: @linkBlue;
+@linkHoverToc: @minLighestGray;
+@innerWrapColor: @minWhite;
+@maxButtonColor: @minWhite;
+
+@textColor: @minDarkGray;
+@textColorFooter: @minWhite;
+@linkColorMenu: @minLighestGray;
+@textColorLogo: @minLighestGray;
+@linkColorToc: @minDarkGray;
+
+
+// Font-families
+@import url('https://fonts.googleapis.com/css2?family=Raleway&family=Lato:wght@300;400&family=Source+Sans+Pro:wght@300;400;600&display=swap');
+
+
+@fontFamilySourceSans:         "Source Sans Pro", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+@fontFamilyLato:         "Lato", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+@fontFamilyRaleway:           Raleway, Arial, "Helvetica Neue", Helvetica, sans-serif;
+
+@fontFamilyHeadings: @fontFamilySourceSans;
+@fontFamilyBody:     @fontFamilyLato;
+@fontFamilyHeader: @fontFamilyRaleway;
+@fontFamilyLogo: @fontFamilySourceSans;
+
+// Font-sizes
+@magicNumber:  24px;
+@fontSizeBody: 16px;
+
+@fontSizeH1: 2.375em;
+@fontSizeH2: 1.875em;
+@fontSizeH3: 1.5em;
+@fontSizeH4: 1.4em;
+@fontSizeH5: 1.25em;
+@fontSizeH6: 1.25em;
+
+
+.rm-max.rm-navbar {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+}
+
+.region-main {
+    margin-top: 24px;
+}
+
+.region-main.has-sidebar {
+    margin-top: 0;
+}
+
+.region-breadcrumb {
+    margin-top: 24px;
+    margin-bottom: -12px;
+}
+
+.rm-default .selected a,
+.rm-default .selected-parent a {
+    color: @lightOrange;
+}
+
+.toc .selected {
+    border-left: 6px solid @lightOrange;
+
+    & a {
+        padding-left: 18px;
+    }
+}
+
+input[type=submit] {
+    background: @green;
+}
+
+input.invalid {
+    background: @red;
+}
+
+input.invalid,
+input.valid {
+    min-width: 12rem;
+}
+
+label {
+    margin-bottom: -0.8rem;
+    text-transform: uppercase;
+}
+
+.fa-check {
+    color: @green;
+}
+
+.fa-times {
+    color: @red;
+}
+
+.ip-label {
+    font-weight: 600;
+}
+
+.ip-div {
+    padding: 1rem 0 0;
+}
+
+.ip-results {
+    padding: 0 1rem 1rem;
+    border: 1px solid gray;
+    margin: 1rem 0;
+}
+
+.valid {
+    background: @bgGreen;
+}
+
+.invalid {
+    background: @bgRed;
+}
+
+.site-logo-text a {
+    color: #c2cbd1;
+    font-style: normal;
+}
+
+.site-logo img {
+    display: none;
+}
+
+.region-flash img {
+    display: none;
+}
+
+
+h1 {
+    text-transform: uppercase;
+}
+
+.wrap-sidebar h4 {
+    border-bottom: 1px solid #666;
+    padding-left: 0;
+}
+
+h1 {
+    border-bottom: 1px solid #666;
+    font-weight: 300;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 300;
+    margin-top: @magicNumber;
+    margin-bottom: @magicNumber / 2;
+    border-bottom: none;
+}
+
+h4,
+h5,
+h6 {
+    font-weight: 300;
+    border-bottom: none;
+}
+
+h1 {
+    & ~ h1,
+    & ~ h2,
+    & ~ h3,
+    & ~ h4,
+    & ~ h5,
+    & ~ h6 {
+        margin-top: @magicNumber * 1.5;
+    }
+}
+
+a {
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+figure {
+
+    &.figure.left {
+        margin-right: @magicNumber;
+    }
+
+    &.figure.right {
+        margin-left: @magicNumber;
+    }
+}

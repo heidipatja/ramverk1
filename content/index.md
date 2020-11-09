@@ -4,7 +4,7 @@ title: "Min fina titel"
 Me-sida i kursen ramverk1
 =========================
 
-[FIGURE src="img/bike-small.jpg?w=400" class="w50 left" caption="Heidi funderar på framtiden."]
+[FIGURE src="image/bike-small.jpg?w=400" class="left w50" caption="Heidi funderar på framtiden."]
 
 Jag heter Heidi Patja och är bosatt i Sundbyberg.
 

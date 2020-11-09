@@ -19,7 +19,7 @@ views:
 Om kursen
 =========================
 
-[FIGURE src=img/arbetsplats.jpg?w=300 class="left w50" caption="Heidis medhjälpare."]
+[FIGURE src=image/arbetsplats.jpg?w=300 class="left w50" caption="Heidis medhjälpare."]
 
 Kursen *Webbaserade ramverk 1* fokuserar på objektorienterad programmering med designmönster och återanvändbara moduler i webbaserade ramverk. Programmeringsspråket är PHP.
 

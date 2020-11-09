@@ -62,6 +62,20 @@ return [
             "text" => "IP",
             "url" => "ip",
             "title" => "Validera IP",
+            "submenu" => [
+                "items" => [
+                    [
+                        "text" => "IP version 1",
+                        "url" => "ip",
+                        "title" => "IP-validering",
+                    ],
+                    [
+                        "text" => "IP & geodata",
+                        "url" => "ip-geo",
+                        "title" => "IP & Geodata",
+                    ],
+                ],
+            ],
         ],
         [
             "text" => "Om",

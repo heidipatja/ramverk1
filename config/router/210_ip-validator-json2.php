@@ -7,7 +7,7 @@ return [
         [
             "info" => "IPJSONController",
             "mount" => "ip-geo-json",
-            "handler" => "\Hepa19\IPGeo\IPJSONController",
+            "handler" => "\Hepa19\IPGeo\IPGeoJSONController",
         ],
     ]
 ];

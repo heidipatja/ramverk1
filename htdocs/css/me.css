@@ -6650,6 +6650,9 @@ label {
 .region-flash img {
   display: none;
 }
+#map {
+  height: 25rem;
+}
 h1 {
   text-transform: uppercase;
 }

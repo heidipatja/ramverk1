@@ -15,8 +15,8 @@ namespace Anax\View;
 
 <p class="ingress">Skriv in en IP-adress för att se om den är giltig och för att få fram domännamnet.</p>
 
-<form action=<?= url("ip") ?> method="get">
+<form action=<?= url("ip-geo") ?> method="get">
     <label for="ip">IP-address</label>
-    <input type="text" name="ip" placeholder="3.217.12.75">
+    <input type="text" name="ip" placeholder="3.217.12.75" value="<?= htmlentities($ip) ?>">
     <input type="submit" value="Validera">
 </form>

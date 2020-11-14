@@ -29,26 +29,37 @@ class IPGeoController implements ContainerInjectableInterface
         $request = $this->di->get("request");
         $ip = $request->getGet("ip");
 
-        if ($ip) {
-            $validator = new IPGeoValidator();
-            $valid = $validator->isValid($ip);
-            $protocol = $validator->getProtocol($ip);
-            $host = $validator->getHost($ip);
+        if (empty($ip)) {
+            $current = new IPGetCurrent();
+            $ip = $current->getIP($request);
         }
+
+        $validator = new IPGeoValidator();
+        $valid = $validator->isValid($ip);
+        $protocol = $validator->getProtocol($ip);
+        $host = $validator->getHost($ip);
+        $ipstack = new IPStack();
+        $ipstack->setUrl($ip);
+        $ipstackRes = $ipstack->getData();
 
         $data = [
             "ip" => $ip ?? null,
             "valid" => $valid ?? null,
             "protocol" => $protocol ?? null,
-            "host" => $host ?? null
+            "host" => $host ?? null,
+            "longitude" => $ipstackRes["longitude"] ?? null,
+            "latitude" => $ipstackRes["latitude"] ?? null,
+            "city" => $ipstackRes["city"] ?? null,
+            "country_name" => $ipstackRes["country_name"] ?? null,
         ];
 
-        $page->add("ip-geo/index", $data);
+        $page->add("ip-geo/validation-form", $data);
 
         if ($ip) {
             $page->add("ip-geo/result", $data);
         }
 
+        $page->add("ip-geo/map", $data);
         $page->add("ip-geo/json", $data);
 
         return $page->render([

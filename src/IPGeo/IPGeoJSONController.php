@@ -28,18 +28,18 @@ class IPGeoJSONController implements ContainerInjectableInterface
         $ip = $request->getGet("ip");
 
         if (empty($ip)) {
-            $current = new IPGetCurrent();
-            $ip = $current->getIP($request);
+            $ipgetcurrent = $this->di->get("ipgetcurrent");
+            $ip = $ipgetcurrent->getIP();
         }
 
-        $validator = new IPGeoValidator();
+        $validator = $this->di->get("validator");
         $valid = $validator->isValid($ip);
         $protocol = $validator->getProtocol($ip);
         $host = $validator->getHost($ip);
-        $ipstack = new IPStack();
+        $ipstack = $this->di->get("ipstack");
         $ipstack->setUrl($ip);
         $ipstackRes = $ipstack->getData();
-        $map = new OpenStreetMap();
+        $map = $this->di->get("map");
         $mapLink = $map->getMap($ipstackRes["longitude"], $ipstackRes["latitude"]);
 
         $data = [

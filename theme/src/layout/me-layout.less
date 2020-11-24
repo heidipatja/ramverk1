@@ -44,7 +44,8 @@
 .inner-wrap {
     background-color: transparent;
 
-    &-after-main {
+    &-after-main,
+    &-columns-below {
         background-color: white;
     }
 
@@ -76,11 +77,16 @@
 .region-main,
 .region-sidebar-left,
 .region-sidebar-right,
-.region-columns-below,
 .author-byline,
 .next-previous,
 .region-after-main {
     margin-bottom: 2.5rem;
+}
+
+
+.region-columns-above,
+.region-columns-below {
+    // margin-bottom: 2.5rem;
 }
 
 /* Header */
@@ -127,6 +133,8 @@
 .outer-wrap-breadcrumb,
 .inner-wrap-main,
 .outer-wrap-flash-message,
+.outer-wrap-columns-below,
+.outer-wrap-columns-above,
 .inner-wrap-columns-above,
 .inner-wrap-columns-below,
 .inner-wrap-breadcrumb,

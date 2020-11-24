@@ -30,15 +30,15 @@ class IPGeoController implements ContainerInjectableInterface
         $ip = $request->getGet("ip");
 
         if (empty($ip)) {
-            $current = new IPGetCurrent();
-            $ip = $current->getIP($request);
+            $ipgetcurrent = $this->di->get("ipgetcurrent");
+            $ip = $ipgetcurrent->getIP();
         }
 
-        $validator = new IPGeoValidator();
+        $validator = $this->di->get("validator");
         $valid = $validator->isValid($ip);
         $protocol = $validator->getProtocol($ip);
         $host = $validator->getHost($ip);
-        $ipstack = new IPStack();
+        $ipstack = $this->di->get("ipstack");
         $ipstack->setUrl($ip);
         $ipstackRes = $ipstack->getData();
 
@@ -53,14 +53,13 @@ class IPGeoController implements ContainerInjectableInterface
             "country_name" => $ipstackRes["country_name"] ?? null,
         ];
 
-        $page->add("ip-geo/validation-form", $data);
+        $page->add("ip-geo/form", $data);
 
         if ($ip) {
             $page->add("ip-geo/result", $data);
         }
 
         $page->add("ip-geo/map", $data);
-        $page->add("ip-geo/json", $data);
 
         return $page->render([
             "title" => $title

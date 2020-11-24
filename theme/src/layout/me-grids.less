@@ -176,6 +176,12 @@
         #desinax-vgrid.push(1);
     }
 
+    .region-columns-below
+    .region-columns-above {
+        #desinax-vgrid.column(@columns - 2);
+        #desinax-vgrid.push(1);
+    }
+
     .region-columns-below .col2,
     .region-columns-above .col2 {
         #desinax-vgrid.column(@columns / 2);
@@ -257,22 +263,12 @@
 
     .region-columns-below .col5,
     .region-columns-above .col5 {
-        #desinax-vgrid.column((@columns - 2) / 2);
-
-        &:nth-child(1),
-        &:nth-child(3),
-        &:nth-child(5), {
-            #desinax-vgrid.push(1);
-        }
+        #desinax-vgrid.column(@columns / 2);
     }
 
     .region-columns-below .col6,
     .region-columns-above .col6 {
-        #desinax-vgrid.column((@columns - 2) / 2);
-
-        &:nth-child(odd) {
-            #desinax-vgrid.push(1);
-        }
+        #desinax-vgrid.column(@columns / 2);
     }
 
     .region-main {
@@ -302,13 +298,7 @@
 @media screen and (max-width: 700px) {
     .region-columns-below .col5,
     .region-columns-above .col5 {
-        #desinax-vgrid.column((@columns - 2) / 2);
-
-        &:nth-child(1),
-        &:nth-child(3),
-        &:nth-child(5), {
-            #desinax-vgrid.push(1);
-        }
+        #desinax-vgrid.column(@columns);
     }
 
     .region-columns-above .col3 {

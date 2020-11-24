@@ -82,16 +82,21 @@ input {
     padding: 0.3rem;
     height: @magicNumber * 1.5;
     border: 1px solid @minMidGray;
-    margin-bottom: @magicNumber / 2;
 }
 
 input[type=text],
 input[type=number] {
-    width: 10em;
+    width: 12em;
+    margin-bottom: @magicNumber;
 }
 
 input[type=number] {
     width: 5em;
+}
+
+input[type=radio] {
+    height: 1rem;
+    margin-right: 0.25rem;
 }
 
 input[type=submit],
@@ -102,10 +107,12 @@ input[type=reset] {
     height: @magicNumber * 1.5;
     text-decoration: none;
     margin: 1em 0.5em 1em 0;
+    margin-bottom: @magicNumber / 2;
 }
 
 input[type=search] {
     width: 20em;
+    margin-bottom: @magicNumber / 2;
 }
 
 textarea {

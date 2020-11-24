@@ -5,3 +5,6 @@ memory::
 composer.lock
 
 config/api_keys.php
+config/api_weather_config.php
+config/api_weatherprog_config.php
+config/api_ip_config.php

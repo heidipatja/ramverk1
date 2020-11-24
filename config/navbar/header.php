@@ -60,22 +60,18 @@ return [
         ],
         [
             "text" => "IP",
-            "url" => "ip",
+            "url" => "ip-geo",
             "title" => "Validera IP",
-            "submenu" => [
-                "items" => [
-                    [
-                        "text" => "IP version 1",
-                        "url" => "ip",
-                        "title" => "IP-validering",
-                    ],
-                    [
-                        "text" => "IP & geodata",
-                        "url" => "ip-geo",
-                        "title" => "IP & Geodata",
-                    ],
-                ],
-            ],
+        ],
+        [
+            "text" => "Väder",
+            "url" => "weather",
+            "title" => "Väder",
+        ],
+        [
+            "text" => "API",
+            "url" => "api",
+            "title" => "API",
         ],
         [
             "text" => "Om",

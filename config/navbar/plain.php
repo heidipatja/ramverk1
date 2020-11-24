@@ -20,8 +20,18 @@ return [
         ],
         [
             "text" => "IP",
-            "url" => "ip",
+            "url" => "ip-geo",
             "title" => "Validera IP",
+        ],
+        [
+            "text" => "Väder",
+            "url" => "weather",
+            "title" => "Väder",
+        ],
+        [
+            "text" => "API",
+            "url" => "api",
+            "title" => "API",
         ],
         [
             "text" => "Om",

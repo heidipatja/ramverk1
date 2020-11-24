@@ -5279,14 +5279,18 @@ input {
   padding: 0.3rem;
   height: 36px;
   border: 1px solid #4a5559;
-  margin-bottom: 12px;
 }
 input[type=text],
 input[type=number] {
-  width: 10em;
+  width: 12em;
+  margin-bottom: 24px;
 }
 input[type=number] {
   width: 5em;
+}
+input[type=radio] {
+  height: 1rem;
+  margin-right: 0.25rem;
 }
 input[type=submit],
 input[type=reset] {
@@ -5296,9 +5300,11 @@ input[type=reset] {
   height: 36px;
   text-decoration: none;
   margin: 1em 0.5em 1em 0;
+  margin-bottom: 12px;
 }
 input[type=search] {
   width: 20em;
+  margin-bottom: 12px;
 }
 textarea {
   width: 600px;
@@ -5879,6 +5885,14 @@ pre {
     margin-right: 0.52083333%;
     margin-left: 4.6875%;
   }
+  .region-columns-below .region-columns-above {
+    display: inline;
+    float: left;
+    width: 90.625%;
+    margin-left: 0.52083333%;
+    margin-right: 0.52083333%;
+    margin-left: 4.6875%;
+  }
   .region-columns-below .col2,
   .region-columns-above .col2 {
     display: inline;
@@ -6003,29 +6017,17 @@ pre {
   .region-columns-above .col5 {
     display: inline;
     float: left;
-    width: 44.79166667%;
+    width: 48.95833333%;
     margin-left: 0.52083333%;
     margin-right: 0.52083333%;
-  }
-  .region-columns-below .col5:nth-child(1),
-  .region-columns-above .col5:nth-child(1),
-  .region-columns-below .col5:nth-child(3),
-  .region-columns-above .col5:nth-child(3),
-  .region-columns-below .col5:nth-child(5),
-  .region-columns-above .col5:nth-child(5) {
-    margin-left: 4.6875%;
   }
   .region-columns-below .col6,
   .region-columns-above .col6 {
     display: inline;
     float: left;
-    width: 44.79166667%;
+    width: 48.95833333%;
     margin-left: 0.52083333%;
     margin-right: 0.52083333%;
-  }
-  .region-columns-below .col6:nth-child(odd),
-  .region-columns-above .col6:nth-child(odd) {
-    margin-left: 4.6875%;
   }
   .region-main.has-sidebar-right,
   .region-main.has-sidebar-left,
@@ -6063,17 +6065,9 @@ pre {
   .region-columns-above .col5 {
     display: inline;
     float: left;
-    width: 44.79166667%;
+    width: 98.95833333%;
     margin-left: 0.52083333%;
     margin-right: 0.52083333%;
-  }
-  .region-columns-below .col5:nth-child(1),
-  .region-columns-above .col5:nth-child(1),
-  .region-columns-below .col5:nth-child(3),
-  .region-columns-above .col5:nth-child(3),
-  .region-columns-below .col5:nth-child(5),
-  .region-columns-above .col5:nth-child(5) {
-    margin-left: 4.6875%;
   }
   .region-columns-above .col3 {
     display: inline;
@@ -6256,7 +6250,8 @@ figure.figure-codepen {
 .inner-wrap {
   background-color: transparent;
 }
-.inner-wrap-after-main {
+.inner-wrap-after-main,
+.inner-wrap-columns-below {
   background-color: white;
 }
 .inner-wrap-header {
@@ -6270,7 +6265,6 @@ figure.figure-codepen {
 .region-main,
 .region-sidebar-left,
 .region-sidebar-right,
-.region-columns-below,
 .author-byline,
 .next-previous,
 .region-after-main {
@@ -6306,6 +6300,8 @@ figure.figure-codepen {
 .outer-wrap-breadcrumb,
 .inner-wrap-main,
 .outer-wrap-flash-message,
+.outer-wrap-columns-below,
+.outer-wrap-columns-above,
 .inner-wrap-columns-above,
 .inner-wrap-columns-below,
 .inner-wrap-breadcrumb,
@@ -6536,19 +6532,42 @@ article ol {
 /**
 * Modules
 */
+/** --------------------------------------------------------------
+ * Weather
+ */
+.weather {
+  text-align: center;
+}
+.weather-day {
+  margin: 0.5rem 0.5rem 2rem;
+  padding: 1rem 1rem 2rem;
+  background: #b5e3b5;
+}
+.weather-date {
+  font-size: 1.3rem;
+  font-weight: 600;
+  border-bottom: 1px solid white;
+  padding: 0 0 0.5rem;
+}
+.weather-temperature {
+  font-size: 2.5rem;
+}
+.weather-icon {
+  margin-bottom: -24px;
+}
 @font-face {
   font-family: 'Lato';
   font-style: normal;
   font-weight: 300;
   font-display: swap;
-  src: local('Lato Light'), local('Lato-Light'), url(https://fonts.gstatic.com/s/lato/v17/S6u9w4BMUTPHh7USew8.ttf) format('truetype');
+  src: url(https://fonts.gstatic.com/s/lato/v17/S6u9w4BMUTPHh7USew8.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Lato';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: local('Lato Regular'), local('Lato-Regular'), url(https://fonts.gstatic.com/s/lato/v17/S6uyw4BMUTPHvxk.ttf) format('truetype');
+  src: url(https://fonts.gstatic.com/s/lato/v17/S6uyw4BMUTPHvxk.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Raleway';
@@ -6562,21 +6581,21 @@ article ol {
   font-style: normal;
   font-weight: 300;
   font-display: swap;
-  src: local('Source Sans Pro Light'), local('SourceSansPro-Light'), url(https://fonts.gstatic.com/s/sourcesanspro/v14/6xKydSBYKcSV-LCoeQqfX1RYOo3ik4zAkA.ttf) format('truetype');
+  src: url(https://fonts.gstatic.com/s/sourcesanspro/v14/6xKydSBYKcSV-LCoeQqfX1RYOo3ik4zAkA.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Source Sans Pro';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: local('Source Sans Pro Regular'), local('SourceSansPro-Regular'), url(https://fonts.gstatic.com/s/sourcesanspro/v14/6xK3dSBYKcSV-LCoeQqfX1RYOo3aPw.ttf) format('truetype');
+  src: url(https://fonts.gstatic.com/s/sourcesanspro/v14/6xK3dSBYKcSV-LCoeQqfX1RYOo3aPw.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Source Sans Pro';
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: local('Source Sans Pro SemiBold'), local('SourceSansPro-SemiBold'), url(https://fonts.gstatic.com/s/sourcesanspro/v14/6xKydSBYKcSV-LCoeQqfX1RYOo3i54rAkA.ttf) format('truetype');
+  src: url(https://fonts.gstatic.com/s/sourcesanspro/v14/6xKydSBYKcSV-LCoeQqfX1RYOo3i54rAkA.ttf) format('truetype');
 }
 .rm-max.rm-navbar {
   position: absolute;
@@ -6604,7 +6623,7 @@ article ol {
   padding-left: 18px;
 }
 input[type=submit] {
-  background: #83df87;
+  background: #b5e3b5;
 }
 input.invalid {
   background: #f1683d;
@@ -6614,7 +6633,6 @@ input.valid {
   min-width: 12rem;
 }
 label {
-  margin-bottom: -0.8rem;
   text-transform: uppercase;
 }
 .fa-check {

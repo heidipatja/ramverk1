@@ -6538,9 +6538,14 @@ article ol {
 .weather {
   text-align: center;
 }
+.weather::after {
+  content: "";
+  clear: both;
+  display: table;
+}
 .weather-day {
-  margin: 0.5rem 0.5rem 2rem;
-  padding: 1rem 1rem 2rem;
+  margin: 0.5rem;
+  padding: 1rem;
   background: #b5e3b5;
 }
 .weather-date {
@@ -6670,6 +6675,7 @@ label {
 }
 #map {
   height: 25rem;
+  width: 100%;
 }
 h1 {
   text-transform: uppercase;

@@ -6,4 +6,4 @@ Current sample files:
 
 `config/api_weather_config_sample.php`
 `config/api_weatherprog_config_sample.php`
-`config/api_ip_config_sample.php
+`config/api_ip_config_sample.php`

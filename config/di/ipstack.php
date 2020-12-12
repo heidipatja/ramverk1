@@ -11,12 +11,16 @@ return [
                 $ipstack = new \Hepa19\IPGeo\IPStack();
                 $curl = new \Hepa19\Curl\Curl();
                 $cfg = $this->get("configuration");
-                $config = $cfg->load("api_ip_config.php");
-                $key = $config["config"]["apiKey"] ?? null;
-                $baseUrl = $config["config"]["baseUrl"] ?? null;
-                $ipstack->setCurl($curl);
-                $ipstack->setApiKey($key);
-                $ipstack->setBaseUrl($baseUrl);
+
+                if (file_exists(ANAX_INSTALL_PATH . "/config/api_ip_config.php")) {
+                    $config = $cfg->load("api_ip_config.php");
+                    $key = $config["config"]["apiKey"] ?? null;
+                    $baseUrl = $config["config"]["baseUrl"] ?? null;
+                    $ipstack->setCurl($curl);
+                    $ipstack->setApiKey($key);
+                    $ipstack->setBaseUrl($baseUrl);
+                }
+
                 return $ipstack;
             }
         ],

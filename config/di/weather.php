@@ -11,17 +11,21 @@ return [
                 $weather = new \Hepa19\Weather\WeatherModel();
                 $curl = new \Hepa19\Curl\Curl();
                 $cfg = $this->get("configuration");
-                $config = $cfg->load("api_weather_config.php");
-                $key = $config["config"]["apiKey"] ?? null;
-                $baseUrl = $config["config"]["baseUrl"] ?? null;
-                $options = $config["config"]["options"] ?? null;
-                $start = $config["config"]["start"] ?? null;
-                $stop = $config["config"]["stop"] ?? null;
-                $weather->setCurl($curl);
-                $weather->setApiKey($key);
-                $weather->setBaseUrl($baseUrl);
-                $weather->setUrlOptions($options);
-                $weather->setStartStop($start, $stop);
+
+                if (file_exists(ANAX_INSTALL_PATH . "/config/api_weather_config.php")) {
+                    $config = $cfg->load("api_weather_config.php");
+                    $key = $config["config"]["apiKey"] ?? null;
+                    $baseUrl = $config["config"]["baseUrl"] ?? null;
+                    $options = $config["config"]["options"] ?? null;
+                    $start = $config["config"]["start"] ?? null;
+                    $stop = $config["config"]["stop"] ?? null;
+                    $weather->setCurl($curl);
+                    $weather->setApiKey($key);
+                    $weather->setBaseUrl($baseUrl);
+                    $weather->setUrlOptions($options);
+                    $weather->setStartStop($start, $stop);
+                }
+
                 return $weather;
             }
         ],

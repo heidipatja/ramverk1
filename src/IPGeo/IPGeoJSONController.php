@@ -36,9 +36,7 @@ class IPGeoJSONController implements ContainerInjectableInterface
         $valid = $validator->isValid($ip);
         $protocol = $validator->getProtocol($ip);
         $host = $validator->getHost($ip);
-        $ipstack = $this->di->get("ipstack");
-        $ipstack->setUrl($ip);
-        $ipstackRes = $ipstack->getData();
+        $ipstackRes = $this->getIPData($ip);
         $map = $this->di->get("map");
         $mapLink = $map->getMap($ipstackRes["longitude"], $ipstackRes["latitude"]);
 
@@ -55,5 +53,20 @@ class IPGeoJSONController implements ContainerInjectableInterface
         ];
 
         return [$data];
+    }
+
+
+
+    /**
+     * Get ip data
+     *
+     */
+    public function getIPData($ip)
+    {
+        $ipstack = $this->di->get("ipstack");
+        $ipstack->setUrl($ip);
+        $ipstackRes = $ipstack->getData();
+
+        return $ipstackRes;
     }
 }

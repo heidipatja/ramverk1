@@ -38,9 +38,7 @@ class IPGeoController implements ContainerInjectableInterface
         $valid = $validator->isValid($ip);
         $protocol = $validator->getProtocol($ip);
         $host = $validator->getHost($ip);
-        $ipstack = $this->di->get("ipstack");
-        $ipstack->setUrl($ip);
-        $ipstackRes = $ipstack->getData();
+        $ipstackRes = $this->getIPData($ip);
 
         $data = [
             "ip" => $ip ?? null,
@@ -64,5 +62,18 @@ class IPGeoController implements ContainerInjectableInterface
         return $page->render([
             "title" => $title
         ]);
+    }
+
+    /**
+     * Get ip data
+     *
+     */
+    public function getIPData($ip)
+    {
+        $ipstack = $this->di->get("ipstack");
+        $ipstack->setUrl($ip);
+        $ipstackRes = $ipstack->getData();
+
+        return $ipstackRes;
     }
 }

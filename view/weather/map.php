@@ -11,7 +11,7 @@ namespace Anax\View;
 <?php if ($longitude && $latitude) : ?>
     <h3>Karta</h3>
 
-    <div id="map">
+    <div id="map" style="height:25rem;width:100%;">
     </div>
 
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css">

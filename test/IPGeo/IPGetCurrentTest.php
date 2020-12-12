@@ -22,6 +22,7 @@ class IPGetCurrentTest extends TestCase
 
         $di = new DIMagic();
         $di->loadServices(ANAX_INSTALL_PATH . "/config/di");
+        $di->loadServices(ANAX_INSTALL_PATH . "/test/config/di");
 
         $this->current = new IPGetCurrent();
     }

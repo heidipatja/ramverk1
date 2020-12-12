@@ -1,6 +1,6 @@
 <?php
 
-namespace Hepa19\Weather;
+namespace Hepa19\API;
 
 use Anax\Response\ResponseUtility;
 use Anax\DI\DIMagic;
@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 /**
  * Example test class.
  */
-class WeatherControllerTest extends TestCase
+class APIControllerTest extends TestCase
 {
     private $controller;
 
@@ -24,7 +24,9 @@ class WeatherControllerTest extends TestCase
         $di->loadServices(ANAX_INSTALL_PATH . "/config/di");
         $di->loadServices(ANAX_INSTALL_PATH . "/test/config/di");
 
-        $this->controller = new WeatherControllerMock();
+        $this->controller = new APIController();
+
+        $_SERVER["REMOTE_ADDR"] = "127.0.0.1";
 
         $this->controller->setDi($di);
     }
@@ -37,23 +39,8 @@ class WeatherControllerTest extends TestCase
         $res = $this->controller->indexActionGet();
 
         $this->assertIsObject($res);
-    }
 
-
-
-    /**
-     * Test indexActionGet has request past
-     */
-    public function testIndexActionGetPast()
-    {
-        global $di;
-
-        $request = $di->get("request");
-        $request->setGet("location", "123.12.12.123");
-        $request->setGet("type", "past");
-        $res = $this->controller->indexActionGet();
-
-        $this->assertIsObject($res);
+        $this->assertInstanceOf("Anax\Response\Response", $res);
     }
 
 
@@ -61,16 +48,37 @@ class WeatherControllerTest extends TestCase
     /**
      * Test indexActionGet has request future
      */
-    public function testIndexActionGetFuture()
+    public function testIndexActionGetRequestFuture()
     {
         global $di;
 
         $request = $di->get("request");
-        $request->setGet("location", "123.12.12.123");
+        $request->setGet("ip", "123.12.12.123");
         $request->setGet("type", "future");
+
         $res = $this->controller->indexActionGet();
 
         $this->assertIsObject($res);
+
+        $this->assertInstanceOf("Anax\Response\Response", $res);
+    }
+
+
+
+    /**
+     * Test indexActionGet has request past
+     */
+    public function testIndexActionGetRequestPast()
+    {
+        global $di;
+
+        $request = $di->get("request");
+        $request->setGet("ip", "123.12.12.123");
+        $request->setGet("type", "past");
+        $res = $this->controller->indexActionGet();
+
+        $this->assertIsObject($res);
+
         $this->assertInstanceOf("Anax\Response\Response", $res);
     }
 }

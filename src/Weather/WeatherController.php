@@ -42,22 +42,19 @@ class WeatherController implements ContainerInjectableInterface
             $empty = "no";
         }
 
-        $ipstack = $this->di->get("ipstack");
-        $ipstack->setUrl($location);
-        $ipstackRes = $ipstack->getData();
+        $ipstackRes = $this->getIPData($location);
+
         $lon = $ipstackRes["longitude"] ?? null;
         $lat = $ipstackRes["latitude"] ?? null;
 
         if (!empty($lon) && !empty($lat) && $type == "past") {
             $weather = $this->di->get("weather");
             $weather->setUrls($lat, $lon);
-            $weatherInfo = $weather->getMultiData($lat, $lon);
-            $weatherInfo = $weather->filterPast($weatherInfo);
+            $weatherInfo = $this->getMultiData($weather, $lat, $lon);
         } else if (!empty($lon) && !empty($lat)) {
             $weather = $this->di->get("weather_prog");
             $weather->setUrl($lat, $lon);
-            $weatherInfo = $weather->getData($lat, $lon);
-            $weatherInfo = $weather->filterFuture($weatherInfo);
+            $weatherInfo = $this->getData($weather, $lat, $lon);
         }
 
         $data = [
@@ -81,5 +78,48 @@ class WeatherController implements ContainerInjectableInterface
         return $page->render([
             "title" => $title
         ]);
+    }
+
+
+
+    /**
+     * Get ip data
+     *
+     */
+    public function getIPData($location)
+    {
+        $ipstack = $this->di->get("ipstack");
+        $ipstack->setUrl($location);
+        $ipstackRes = $ipstack->getData();
+
+        return $ipstackRes;
+    }
+
+
+
+    /**
+     * Get weather data
+     *
+     */
+    public function getData($weather, $lat, $lon)
+    {
+        $weatherInfo = $weather->getData($lat, $lon);
+        $weatherInfo = $weather->filterFuture($weatherInfo);
+
+        return $weatherInfo;
+    }
+
+
+
+    /**
+     * Get weather data multi
+     *
+     */
+    public function getMultiData($weather, $lat, $lon)
+    {
+        $weatherInfo = $weather->getMultiData($lat, $lon);
+        $weatherInfo = $weather->filterPast($weatherInfo);
+
+        return $weatherInfo;
     }
 }

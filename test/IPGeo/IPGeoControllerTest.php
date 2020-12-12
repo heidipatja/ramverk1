@@ -23,8 +23,9 @@ class IPGeoControllerTest extends TestCase
 
         $di = new DIMagic();
         $di->loadServices(ANAX_INSTALL_PATH . "/config/di");
+        $di->loadServices(ANAX_INSTALL_PATH . "/test/config/di");
 
-        $this->controller = new IPGeoController();
+        $this->controller = new IPGeoControllerMock();
         $this->validator = new IPGeoValidator();
 
         $_SERVER["REMOTE_ADDR"] = "127.0.0.1";

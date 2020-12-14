@@ -14,10 +14,10 @@ $urlToView = url("book");
 
 
 
-?><h1>Delete an item</h1>
+?><h1>Radera bok</h1>
 
 <?= $form ?>
 
 <p>
-    <a href="<?= $urlToView ?>">View all</a>
+    <a href="<?= $urlToView ?>">Visa alla</a>
 </p>

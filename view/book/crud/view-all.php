@@ -18,15 +18,15 @@ $urlToDelete = url("book/delete");
 
 
 
-?><h1>View all items</h1>
+?><h1>Böcker</h1>
 
 <p>
-    <a href="<?= $urlToCreate ?>">Create</a> | 
-    <a href="<?= $urlToDelete ?>">Delete</a>
+    <a href="<?= $urlToCreate ?>">Skapa</a> |
+    <a href="<?= $urlToDelete ?>">Radera</a>
 </p>
 
 <?php if (!$items) : ?>
-    <p>There are no items to show.</p>
+    <p>Ve och fasa, det finns inga böcker än!</p>
 <?php
     return;
 endif;
@@ -35,8 +35,8 @@ endif;
 <table>
     <tr>
         <th>Id</th>
-        <th>Column1</th>
-        <th>Column2</th>
+        <th>Titel</th>
+        <th>Författare</th>
     </tr>
     <?php foreach ($items as $item) : ?>
     <tr>

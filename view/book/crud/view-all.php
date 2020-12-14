@@ -43,8 +43,8 @@ endif;
         <td>
             <a href="<?= url("book/update/{$item->id}"); ?>"><?= $item->id ?></a>
         </td>
-        <td><?= $item->column1 ?></td>
-        <td><?= $item->column2 ?></td>
+        <td><?= $item->title ?></td>
+        <td><?= $item->author ?></td>
     </tr>
     <?php endforeach; ?>
 </table>

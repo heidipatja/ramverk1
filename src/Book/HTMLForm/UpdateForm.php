@@ -25,6 +25,7 @@ class UpdateForm extends FormModel
             [
                 "id" => __CLASS__,
                 "legend" => "Uppdatera bokens detaljer",
+                "escape-values" => false
             ],
             [
                 "id" => [

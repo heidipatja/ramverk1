@@ -23,6 +23,7 @@ class CreateForm extends FormModel
             [
                 "id" => __CLASS__,
                 "legend" => "Bokens detaljer",
+                "escape-values" => false
             ],
             [
                 "title" => [

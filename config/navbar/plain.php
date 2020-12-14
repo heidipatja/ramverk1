@@ -34,6 +34,11 @@ return [
             "title" => "API",
         ],
         [
+            "text" => "Böcker",
+            "url" => "book",
+            "title" => "Böcker",
+        ],
+        [
             "text" => "Om",
             "url" => "om",
             "title" => "Om denna webbplats.",

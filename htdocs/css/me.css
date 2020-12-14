@@ -6584,6 +6584,28 @@ article ol {
 input[type=submit].delete {
   background: #ffb0b0;
 }
+.book-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.book-table th {
+  white-space: nowrap;
+  text-align: left;
+  padding: 0.8rem;
+  font-weight: 600;
+  background: #b5e3b5;
+}
+.book-table tr {
+  padding: 0.5rem;
+}
+.book-table td {
+  white-space: nowrap;
+  padding: 0.5rem 0.8rem;
+}
+.book-table .first {
+  background-color: #eee;
+  min-height: 2em;
+}
 @font-face {
   font-family: 'Lato';
   font-style: normal;

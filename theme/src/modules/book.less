@@ -16,3 +16,30 @@
 input[type=submit].delete {
     background: @lightRed;
 }
+
+.book-table {
+    width: 100%;
+    border-collapse: collapse;
+
+    & th {
+        white-space: nowrap;
+        text-align: left;
+        padding: 0.8rem;
+        font-weight: 600;
+        background: @lightGreen;
+    }
+
+    & tr {
+        padding: 0.5rem;
+    }
+
+    & td {
+        white-space: nowrap;
+        padding: 0.5rem 0.8rem;
+    }
+
+    .first {
+        background-color: #eee;
+        min-height: 2em;
+    }
+}

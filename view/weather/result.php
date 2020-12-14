@@ -9,7 +9,7 @@ namespace Anax\View;
 // var_dump($weather);
 
 ?>
-    <?php if (is_object($weather)) : ?>
+    <?php if (isset($weather[0]["date"])) : ?>
         <h3>Väder</h3>
         <div class="weather columns col3-wrapper">
             <?php foreach ($weather as $day) : ?>

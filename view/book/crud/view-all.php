@@ -32,7 +32,7 @@ $urlToDelete = url("book/delete");
 endif;
 ?>
 
-<table>
+<table class="book-table">
     <tr>
         <th>Id</th>
         <th>Titel</th>

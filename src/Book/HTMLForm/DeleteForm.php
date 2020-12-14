@@ -22,18 +22,18 @@ class DeleteForm extends FormModel
         $this->form->create(
             [
                 "id" => __CLASS__,
-                "legend" => "Delete an item",
+                "legend" => "Radera bok",
             ],
             [
                 "select" => [
                     "type"        => "select",
-                    "label"       => "Select item to delete:",
+                    "label"       => "Välj bok:",
                     "options"     => $this->getAllItems(),
                 ],
 
                 "submit" => [
                     "type" => "submit",
-                    "value" => "Delete item",
+                    "value" => "Radera",
                     "callback" => [$this, "callbackSubmit"]
                 ],
             ]
@@ -52,9 +52,9 @@ class DeleteForm extends FormModel
         $book = new Book();
         $book->setDb($this->di->get("dbqb"));
 
-        $books = ["-1" => "Select an item..."];
+        $books = ["-1" => "Välj en bok..."];
         foreach ($book->findAll() as $obj) {
-            $books[$obj->id] = "{$obj->column1} ({$obj->id})";
+            $books[$obj->id] = "{$obj->title} ({$obj->id})";
         }
 
         return $books;

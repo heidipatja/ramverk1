@@ -26,11 +26,11 @@ input[type=submit].delete {
     }
 
     & th {
-        white-space: nowrap;
         text-align: left;
         padding: 0.8rem;
         font-weight: 600;
         background: @lightGreen;
+        display: table-cell;
     }
 
     & tr:first-child {
@@ -41,10 +41,13 @@ input[type=submit].delete {
     & tr {
         padding: 0.5rem;
         height: 6rem;
+
+        &:nth-child(odd) {
+            background-color: #f7f7f7;
+        }
     }
 
     & td {
-        white-space: nowrap;
         padding: 0.5rem 0.8rem;
     }
 

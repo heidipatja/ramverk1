@@ -6592,11 +6592,11 @@ input[type=submit].delete {
   max-height: 6rem;
 }
 .book-table th {
-  white-space: nowrap;
   text-align: left;
   padding: 0.8rem;
   font-weight: 600;
   background: #b5e3b5;
+  display: table-cell;
 }
 .book-table tr:first-child {
   padding: 0.5rem;
@@ -6606,8 +6606,10 @@ input[type=submit].delete {
   padding: 0.5rem;
   height: 6rem;
 }
+.book-table tr:nth-child(odd) {
+  background-color: #f7f7f7;
+}
 .book-table td {
-  white-space: nowrap;
   padding: 0.5rem 0.8rem;
 }
 .book-table .first {

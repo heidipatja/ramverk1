@@ -34,7 +34,8 @@ class DeleteForm extends FormModel
                 "submit" => [
                     "type" => "submit",
                     "value" => "Radera",
-                    "callback" => [$this, "callbackSubmit"]
+                    "callback" => [$this, "callbackSubmit"],
+                    "class" => "delete"
                 ],
             ]
         );

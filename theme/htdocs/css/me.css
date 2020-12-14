@@ -5315,6 +5315,18 @@ input[readonly],
 textarea[readonly] {
   color: #666;
 }
+legend {
+  visibility: hidden;
+}
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+select {
+  height: 2.3rem;
+  padding: 0.3rem;
+}
 h1,
 h2,
 h3,
@@ -6559,6 +6571,18 @@ article ol {
 }
 .weather-icon {
   margin-bottom: -24px;
+}
+/** --------------------------------------------------------------
+ * Book
+ */
+.htmlform label {
+  display: inline-block;
+}
+.htmlform p {
+  margin: 0;
+}
+input[type=submit].delete {
+  background: #ffb0b0;
 }
 @font-face {
   font-family: 'Lato';

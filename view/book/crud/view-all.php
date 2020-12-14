@@ -46,7 +46,11 @@ endif;
         </td>
         <td><?= $item->title ?></td>
         <td><?= $item->author ?></td>
-        <td><img class="thumb" src="<?= $item->image ?>" alt="<?= $item->title ?>"></td>
+        <td>
+            <?php if ($item->image) : ?>
+            <img class="thumb" src="<?= $item->image ?>" alt="<?= $item->title ?>">
+            <?php endif; ?>
+        </td>
     </tr>
     <?php endforeach; ?>
 </table>

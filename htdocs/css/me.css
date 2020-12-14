@@ -6588,6 +6588,9 @@ input[type=submit].delete {
   width: 100%;
   border-collapse: collapse;
 }
+.book-table img {
+  max-height: 6rem;
+}
 .book-table th {
   white-space: nowrap;
   text-align: left;
@@ -6595,8 +6598,13 @@ input[type=submit].delete {
   font-weight: 600;
   background: #b5e3b5;
 }
+.book-table tr:first-child {
+  padding: 0.5rem;
+  height: 2rem;
+}
 .book-table tr {
   padding: 0.5rem;
+  height: 6rem;
 }
 .book-table td {
   white-space: nowrap;

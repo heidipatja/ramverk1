@@ -24,4 +24,5 @@ class Book extends ActiveRecordModel
     public $id;
     public $title;
     public $author;
+    public $image;
 }

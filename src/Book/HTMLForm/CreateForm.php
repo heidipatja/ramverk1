@@ -37,6 +37,11 @@ class CreateForm extends FormModel
                     "label" => "Författare",
                 ],
 
+                "image" => [
+                    "type" => "text",
+                    "label" => "Bild",
+                ],
+
                 "submit" => [
                     "type" => "submit",
                     "value" => "Spara",
@@ -60,6 +65,7 @@ class CreateForm extends FormModel
         $book->setDb($this->di->get("dbqb"));
         $book->title  = $this->form->value("title");
         $book->author = $this->form->value("author");
+        $book->image = $this->form->value("image");
         $book->save();
         return true;
     }

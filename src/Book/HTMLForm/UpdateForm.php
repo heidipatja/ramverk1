@@ -48,6 +48,12 @@ class UpdateForm extends FormModel
                     "label" => "Författare"
                 ],
 
+                "image" => [
+                    "type" => "text",
+                    "value" => $book->image,
+                    "label" => "Bild"
+                ],
+
                 "submit" => [
                     "type" => "submit",
                     "value" => "Spara",
@@ -94,6 +100,7 @@ class UpdateForm extends FormModel
         $book->find("id", $this->form->value("id"));
         $book->title = $this->form->value("title");
         $book->author = $this->form->value("author");
+        $book->image = $this->form->value("image");
         $book->save();
         return true;
     }

@@ -37,6 +37,7 @@ endif;
         <th>Id</th>
         <th>Titel</th>
         <th>Författare</th>
+        <th>Bild</th>
     </tr>
     <?php foreach ($items as $item) : ?>
     <tr>
@@ -45,6 +46,7 @@ endif;
         </td>
         <td><?= $item->title ?></td>
         <td><?= $item->author ?></td>
+        <td><img class="thumb" src="<?= $item->image ?>" alt="<?= $item->title ?>"></td>
     </tr>
     <?php endforeach; ?>
 </table>
